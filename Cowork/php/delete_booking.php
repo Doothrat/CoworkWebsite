@@ -1,7 +1,8 @@
 <?php
-  session_start();
-
   include ('../include/connexion_bdd.php');
-  $req = 'DELETE FROM FIELD_EXA WHERE idExam = ?';
-  $req->execute([$_GET["id"]]);
+  $q = "DELETE FROM booking WHERE Id_booking = ?";
+  $req = $bdd->prepare($q);
+  $results = $req->execute([$_GET["id"]]);
+
+  header('Location: manage_booking.php?success');
  ?>
