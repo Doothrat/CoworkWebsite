@@ -17,9 +17,9 @@
         $_SESSION['place'] = $place;
 
 
-        $requser = $bdd->prepare("SELECT * FROM room WHERE Id_place = ?");
-        $requser->execute([$place]);
-        $results = $requser->fetchAll(PDO::FETCH_ASSOC);
+        $req = $bdd->prepare("SELECT * FROM room WHERE Id_place = ?");
+        $req->execute([$place]);
+        $results = $req->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
 

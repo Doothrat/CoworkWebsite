@@ -5,9 +5,9 @@
     $password = htmlspecialchars($_POST['password']);
 
 
-    $requser = $bdd->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
-    $requser->execute([$email, $password]);
-    $results = $requser->fetch(PDO::FETCH_ASSOC);
+    $req = $bdd->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+    $req->execute([$email, $password]);
+    $results = $req->fetch(PDO::FETCH_ASSOC);
 
 
     if($results!=null){

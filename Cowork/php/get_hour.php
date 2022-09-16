@@ -16,9 +16,9 @@
         $date = $year . '-' . $month . '-' . $day;
         $_SESSION['date_booking'] = $date;
 
-        $requser = $bdd->prepare("SELECT Start_hour,End_hour FROM booking WHERE Date_booking = ?");
-        $requser->execute([$date]);
-        $results = $requser->fetchAll(PDO::FETCH_ASSOC);
+        $req = $bdd->prepare("SELECT Start_hour,End_hour FROM booking WHERE Date_booking = ?");
+        $req->execute([$date]);
+        $results = $req->fetchAll(PDO::FETCH_ASSOC);
 
 
     ?>

@@ -9,9 +9,9 @@
     <?php
     require '../include/header.php';
     include ('../include/connexion_bdd.php');
-    $requser = $bdd->prepare("SELECT * FROM booking");
-    $requser->execute();
-    $results = $requser->fetchAll(PDO::FETCH_ASSOC);
+    $req = $bdd->prepare("SELECT * FROM booking");
+    $req->execute();
+    $results = $req->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
     <table>

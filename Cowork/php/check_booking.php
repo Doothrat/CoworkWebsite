@@ -6,9 +6,9 @@ if (isset($_POST['Start_hour']) AND !empty($_POST['Start_hour']) AND isset($_POS
   $Start_hour = $_POST['Start_hour'] . ':00:00';
   $End_hour = $_POST['Start_hour']+2 . ':00:00';
 
-  $requser = $bdd->prepare("SELECT * FROM booking");
-  $requser->execute();
-  $booking_res = $requser->fetchAll(PDO::FETCH_ASSOC);
+  $req = $bdd->prepare("SELECT * FROM booking");
+  $req->execute();
+  $booking_res = $req->fetchAll(PDO::FETCH_ASSOC);
 
   $check;
 
@@ -29,8 +29,8 @@ if (isset($_POST['Start_hour']) AND !empty($_POST['Start_hour']) AND isset($_POS
 
 
   if ($check == 1) {
-    $requser = $bdd->prepare("INSERT INTO booking (Id_room, Start_hour, End_hour, Date_booking) VALUES (:val1,:val2,:val3,:val4)");
-    $requser->execute([
+    $req = $bdd->prepare("INSERT INTO booking (Id_room, Start_hour, End_hour, Date_booking) VALUES (:val1,:val2,:val3,:val4)");
+    $req->execute([
       "val1"=>$_SESSION['room'],
       "val2"=>$Start_hour,
       "val3"=>$End_hour,
